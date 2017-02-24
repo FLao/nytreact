@@ -9,6 +9,10 @@ var History = require("./children/History");
 // Helper for making AJAX requests to our API
 var helpers = require("./utils/helpers");
 
+var title;
+var date;
+var webURL;
+
 // Creating the Main component
 var Main = React.createClass({
 
@@ -36,11 +40,22 @@ var Main = React.createClass({
     // Run the query for the title
     helpers.runQuery(this.state.searchTerm).then(function(data) {
       if (data !== this.state.results) {
-        console.log("Title", data);
-        this.setState({ results: data });
+        console.log("Results: ", data);
+        console.log("Title: " + data.snippet);
+        console.log("Date: " + data.pub_date);
+        console.log("URL: " + data.web_url);
+      //  this.setState({ results: data });
+      //  this.setState({ title: data.snippet });
+      //  this.setState({ pubDate: data.pub_date });
+      //  this.setState({ webURL: data.web_url });
+        title = data.snippet;
+        data = data.pub_date;
+        webURL = data.web_url;
+
+        console.log("Here is " + title + data + URL);
 
         // After we've received the result... then post the search term to our history.
-        helpers.postHistory(this.state.searchTerm).then(function() {
+        helpers.postHistory(title, data, webURL).then(function() {
           console.log("Updated!");
 
           // After we've done the post... then get the updated history

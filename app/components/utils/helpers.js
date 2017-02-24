@@ -17,9 +17,9 @@ var helper = {
     // http://api.nytimes.com/svc/search/v2/articlesearch.json?q=smoking&&api-key=9d56c2f694504756913253708013fb73
     return axios.get(queryURL).then(function(results) {
       // If get get a result, return that result's formatted title property
-      if (results.data.response.docs[0].snippet) {
-        console.log("Results: " + results.data.response.docs[0].snippet);
-        return results.data.response.docs[0].snippet;
+      if (results.data.response.docs[0]) {
+        console.log("Results: " + results.data.response.docs[0]);
+        return results.data.response.docs[0];
       }
       // If we don't get any results, return an empty string
       return "";
@@ -32,8 +32,8 @@ var helper = {
   },
 
   // This function posts new searches to our database.
-  postHistory: function(title) {
-    return axios.post("/api", { title: title });
+  postHistory: function(title, date, url) {
+    return axios.post("/api", { title: title, date: date, url: url });
   }
 };
 
