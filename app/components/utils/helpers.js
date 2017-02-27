@@ -34,7 +34,11 @@ var helper = {
   // This function posts new searches to our database.
   postHistory: function(title, date, url) {
     return axios.post("/api", { title: title, date: date, url: url });
-  }
+  },
+
+  deleteArticle: function(id) {
+    return axios.delete("/api", { id: id });
+  } 
 };
 
 // We export the API helper

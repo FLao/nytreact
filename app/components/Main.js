@@ -20,6 +20,7 @@ var Main = React.createClass({
   // Note how we added in this history state variable
   getInitialState: function() {
     return { searchTerm: "", results: "", history: [] };
+    // return { searchTerm: "", results: "", history: [], deleteID: "" };
   },
 
   // The moment the page renders get the History
@@ -44,18 +45,15 @@ var Main = React.createClass({
         console.log("Title: " + data.snippet);
         console.log("Date: " + data.pub_date);
         console.log("URL: " + data.web_url);
-      //  this.setState({ results: data });
-      //  this.setState({ title: data.snippet });
-      //  this.setState({ pubDate: data.pub_date });
-      //  this.setState({ webURL: data.web_url });
         title = data.snippet;
-        data = data.pub_date;
+        date = data.pub_date;
         webURL = data.web_url;
 
-        console.log("Here is " + title + data + URL);
+        console.log("Here is " + title + date + URL);
+        this.setState({ results: data.snippet });
 
         // After we've received the result... then post the search term to our history.
-        helpers.postHistory(title, data, webURL).then(function() {
+        helpers.postHistory(title, date, webURL).then(function() {
           console.log("Updated!");
 
           // After we've done the post... then get the updated history
@@ -71,10 +69,30 @@ var Main = React.createClass({
       }
     }.bind(this));
   },
-  // This function allows childrens to update the parent.
+/*
+    helpers.deleteArticle(id).then(function() {
+      console.log("Updated after deletion!");
+
+      helpers.getHistory().then(function(response) {
+        console.log("Current History", response.data);
+
+        console.log("History", response.data);
+
+        this.setState({ history: response.data });
+
+      }.bind(this));
+    }.bind(this));
+  },
+*/
+  //This function allows childrens to update the parent.
   setTerm: function(term) {
     this.setState({ searchTerm: term });
   },
+/*
+  setTerm: function(term) {
+    this.setState({ deleteID: id });
+  },
+*/
   // Here we render the function
   render: function() {
     return (
