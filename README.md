@@ -1,7 +1,10 @@
 # nytreact
-New York Times Article Search using React
+<h1>New York Times Article Search using React</h1>
+
 Instructions:
-1) npm install
-2) open one terminal and use command "webpack -w"
-3) open another tnerminal and use command "node server.js" (runs on 8080)
-4) open browser window and type in url "localhost:8080"
+<ol>
+<li>npm install</li>
+<li>open one terminal and use command "webpack -w"</li>
+<li>open another terminal and use command "node server.js" (runs on 8080)</li>
+<li>open browser window and type in url "localhost:8080"</li>
+</ol>
