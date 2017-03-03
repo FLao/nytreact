@@ -28,16 +28,16 @@ var helper = {
 
   // This function hits our own server to retrieve the record of query results
   getHistory: function() {
-    return axios.get("/api");
+    return axios.get("/api/saved");
   },
 
   // This function posts new searches to our database.
   postHistory: function(title, date, url) {
-    return axios.post("/api", { title: title, date: date, url: url });
+    return axios.post("/api/saved", { title: title, date: date, url: url });
   },
 
   deleteArticle: function(id) {
-    return axios.delete("/api", { id: id });
+    return axios.delete("/api/saved", { id: id });
   } 
 };
 

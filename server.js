@@ -44,7 +44,7 @@ app.get("/", function(req, res) {
 
 // This is the route we will send GET requests to retrieve our most recent search data.
 // We will call this route the moment our page gets rendered
-app.get("/api", function(req, res) {
+app.get("/api/saved", function(req, res) {
 
   // We will find all the records, sort it in descending order, then limit the records to 5
   Article.find({}).sort([
@@ -60,7 +60,7 @@ app.get("/api", function(req, res) {
 });
 
 // This is the route we will send POST requests to save each search.
-app.post("/api", function(req, res) {
+app.post("/api/saved", function(req, res) {
   console.log("Title: " + req.body.title, "Date: " + req.body.date + "Url: " + req.body.url);
 
   // Here we'll save the location based on the JSON input.
@@ -79,7 +79,7 @@ app.post("/api", function(req, res) {
   });
 });
 
-app.delete("/api", function(req, res) {
+app.delete("/api/saved", function(req, res) {
   Article.remove({
     _id: req.body.id,
   }, function(err) {
