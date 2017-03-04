@@ -1,8 +1,8 @@
 // Include Reactf
 var React = require("react");
 
-// Creating the Results component
-var Results = React.createClass({
+// Creating the Search component
+var Search = React.createClass({
   // Here we render the function
   render: function() {
     return (
@@ -20,4 +20,4 @@ var Results = React.createClass({
 });
 
 // Export the component back for use in other files
-module.exports = Results;
+module.exports = Search;

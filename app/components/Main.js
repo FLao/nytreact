@@ -3,8 +3,8 @@ var React = require("react");
 
 // Here we include all of the sub-components
 var Form = require("./children/Form");
-var Results = require("./children/Results");
-var History = require("./children/History");
+var Search = require("./children/Search");
+var Saved = require("./children/Saved");
 
 // Helper for making AJAX requests to our API
 var helpers = require("./utils/helpers");
@@ -113,7 +113,7 @@ var Main = React.createClass({
 
           <div className="col-md-6">
 
-            <Results title={this.state.results} />
+            <Search title={this.state.results} />
 
           </div>
 
@@ -121,7 +121,7 @@ var Main = React.createClass({
 
         <div className="row">
 
-          <History history={this.state.history} />
+          <Saved history={this.state.history} />
 
         </div>
 

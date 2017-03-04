@@ -2,7 +2,7 @@
 var React = require("react");
 
 // This is the History component. It will be used to show a log of  recent searches.
-var Article = React.createClass({
+var Saved = React.createClass({
 
 /*
   // Here we set a generic state associated with the text being searched for
@@ -48,4 +48,4 @@ var Article = React.createClass({
 });
 
 // Export the component back for use in other files
-module.exports = Article;
+module.exports = Saved;
